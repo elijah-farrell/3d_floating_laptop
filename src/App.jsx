@@ -12,9 +12,9 @@ function Model(props) {
            // Make it float - matching original example but with bigger rotation
          useFrame((state) => {
            const t = state.clock.getElapsedTime()
-           group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, Math.cos(t / 2) / 15 + 0.25, 0.1)
-           group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, Math.sin(t / 4) / 15, 0.1)
-           group.current.rotation.z = THREE.MathUtils.lerp(group.current.rotation.z, Math.sin(t / 8) / 15, 0.1)
+           group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, Math.cos(t / 2) / 20 + 0.25, 0.1)
+           group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, Math.sin(t / 4) / 5, 0.1)
+           group.current.rotation.z = THREE.MathUtils.lerp(group.current.rotation.z, Math.sin(t / 8) / 20, 0.1)
            group.current.position.y = THREE.MathUtils.lerp(group.current.position.y, (-2 + Math.sin(t / 2)) / 2, 0.1)
          })
 
@@ -27,7 +27,7 @@ function Model(props) {
       
       // Calculate appropriate scale (target size around 5-8 units)
       const maxDimension = Math.max(size.x, size.y, size.z)
-      const targetScale = 10 / maxDimension // Make it bigger
+      const targetScale = 7 / maxDimension 
       
       // Apply scale and center the model
       group.current.scale.setScalar(targetScale)
@@ -63,7 +63,7 @@ function Model(props) {
   }, [scene])
 
   return (
-    <group ref={group} {...props} dispose={null} rotation-y={Math.PI}>
+    <group ref={group} {...props} dispose={null}>
       {/* Render the entire scene hierarchy properly */}
       <primitive object={scene} />
       
@@ -102,10 +102,10 @@ function Model(props) {
 
 export default function App() {
   return (
-    <Canvas camera={{ position: [-5, 0, -15], fov: 55 }}>
+    <Canvas camera={{ position: [-5, 0, 13], fov: 55 }}>
       <pointLight position={[10, 10, 10]} intensity={1.5} />
       <Suspense fallback={null}>
-        <group rotation={[0, 0, 0]} position={[0, -0.5, 4]}>
+        <group rotation={[0, 0, 0]} position={[0, 0, 3]}>
           <Model />
         </group>
         <Environment preset="city" />
