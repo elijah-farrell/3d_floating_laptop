@@ -21,8 +21,8 @@ body {
 }
 
 .content {
-  width: 334px;
-  height: 216px;
+  width: 100% !important;
+  height: 100% !important;
   background: #f0f0f0;
   border-radius: 3px;
   overflow-y: auto;
@@ -30,9 +30,9 @@ body {
 }
 
 .wrapper {
-  padding: 10px;
-  width: 668px;
-  height: 432px;
-  transform: scale(0.5);
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  transform: none !important;
   transform-origin: top left;
 }

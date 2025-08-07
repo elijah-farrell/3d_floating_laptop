@@ -70,28 +70,30 @@ function Model(props) {
       {/* Try to attach content to the Screen object */}
       {scene && (
         <Html 
-          className="content" 
-          rotation-x={0}
+          className="laptop-content" 
+          rotation-x={-Math.PI / 12} // Fix upside down and match screen angle
           rotation-y={0}
           rotation-z={0}
-          position={[0, 0.65, -10.3]} // Based on Screen object position
+          position={[0, 10.25, -13.175]} // Move up to the actual screen surface
           transform 
-          occlude
+          occlude={true}
           style={{
-            width: '300px',
-            height: '200px',
-            background: 'red', // Make it red so we can see it clearly
-            borderRadius: '4px',
-            padding: '10px',
-            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+            width: '1160px',
+            height: '660px',
+            background: 'white',
+            borderRadius: '0px',
+            padding: '0px',
+            boxShadow: 'none',
             overflow: 'hidden',
-            fontSize: '12px'
+            fontSize: '12px',
+            zIndex: 1000
           }}
         >
-          <div className="wrapper" onPointerDown={(e) => e.stopPropagation()}>
-            <div style={{color: 'white', textAlign: 'center'}}>
-              <h3>TEST SCREEN</h3>
-              <p>If you can see this, the screen is working!</p>
+          <div className="wrapper" onPointerDown={(e) => e.stopPropagation()} style={{width: '100%', height: '100%'}}>
+            <div style={{width: '100%', height: '100%', display: 'flex', flexDirection: 'column'}}>
+              <div style={{width: '100%', height: '100%'}}>
+                <HeroPage />
+              </div>
             </div>
           </div>
         </Html>
