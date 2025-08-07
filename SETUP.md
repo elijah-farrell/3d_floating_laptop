@@ -34,10 +34,3 @@
 ├── vite.config.js       # Vite configuration
 └── package.json
 ```
-
-## Tech Stack
-
-- **Frontend**: React 18, Vite
-- **3D Graphics**: Three.js, @react-three/fiber, @react-three/drei
-- **Styling**: Tailwind CSS
-- **UI Components**: Headless UI, Heroicons 

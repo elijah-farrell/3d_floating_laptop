@@ -2,10 +2,12 @@
 
 A cool 3D laptop that displays a full landing page on its screen! Built with React and Three.js - you can drag to rotate the laptop and see the website content right on the 3D screen.
 
+![3D Interactive Laptop Demo](public/laptop.png)
+
 ## What's Cool About It
 
-- 🖥️ **3D laptop** that floats and moves realistically
-- 🌐 **Real website** displayed on the laptop screen with interactive UI components
+- 🖥️ **3D laptop** - floats and moves realistically
+- 🌐 **Real website** - displayed on the laptop screen with interactive UI components
 - 📱 **Readable text** - everything's sized for the 3D view
 - 🎯 **Drag to rotate** - spin the laptop around in 3D space with shadow effects
 - 📄 **Scrollable content** - the website scrolls inside the screen bounds
