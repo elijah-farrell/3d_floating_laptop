@@ -1,14 +1,14 @@
-# 3D Floating Laptop
+# 3D Interactive Laptop Demo
 
-An interactive 3D laptop landing page built with React, Three.js, and Vite. Features a stunning 3D MacBook model with HTML content displayed on the screen using WebGL occlusion.
+A cool 3D laptop that displays a full landing page on its screen! Built with React and Three.js - you can drag to rotate the laptop and see the website content right on the 3D screen.
 
-## Features
+## What's Cool About It
 
-- 🖥️ Interactive 3D MacBook model
-- 🌐 HTML content rendered inside the 3D scene
-- 🎨 Modern landing page with Tailwind CSS
-- ⚡ Fast development with Vite
-- 📱 Responsive design
+- 🖥️ **3D laptop** that floats and moves realistically
+- 🌐 **Real website** displayed on the laptop screen with interactive UI components
+- 📱 **Readable text** - everything's sized for the 3D view
+- 🎯 **Drag to rotate** - spin the laptop around in 3D space with shadow effects
+- 📄 **Scrollable content** - the website scrolls inside the screen bounds
 
 ## Tech Stack
 
@@ -17,45 +17,10 @@ An interactive 3D laptop landing page built with React, Three.js, and Vite. Feat
 - **Styling**: Tailwind CSS
 - **UI Components**: Headless UI, Heroicons
 
-## Getting Started
+## Setup
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-2. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-3. Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-
-## Project Structure
-
-```
-├── public/
-│   └── mac-draco.glb    # 3D model file
-├── src/
-│   ├── App.js           # Main 3D scene
-│   ├── HeroPage.js      # Landing page content
-│   ├── index.js         # React entry point
-│   └── styles.css       # Global styles
-├── index.html           # HTML template
-├── vite.config.js       # Vite configuration
-└── package.json
-```
-
-## Deployment
-
-This project is compatible with Vite-based deployments like Vercel, Netlify, or any static hosting service.
+See [SETUP.md](SETUP.md) for development setup and technical details.
 
 ## License
 
-MIT
+See [LICENSE](LICENSE) file for license and attribution details.

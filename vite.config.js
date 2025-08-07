@@ -9,6 +9,17 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: true
+    sourcemap: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          three: ['three', '@react-three/fiber', '@react-three/drei']
+        }
+      }
+    }
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'three', '@react-three/fiber', '@react-three/drei']
   }
 }) 

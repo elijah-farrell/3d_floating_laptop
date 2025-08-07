@@ -27,7 +27,7 @@ function Model(props) {
       
       // Calculate appropriate scale (target size around 5-8 units)
       const maxDimension = Math.max(size.x, size.y, size.z)
-      const targetScale = 7 / maxDimension 
+      const targetScale = 9 / maxDimension 
       
       // Apply scale and center the model
       group.current.scale.setScalar(targetScale)
@@ -85,16 +85,20 @@ function Model(props) {
             padding: '0px',
             boxShadow: 'none',
             overflow: 'hidden',
-            fontSize: '12px',
-            zIndex: 1000
+            fontSize: '20px',
+            zIndex: 1000,
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column'
           }}
         >
-          <div className="wrapper" onPointerDown={(e) => e.stopPropagation()} style={{width: '100%', height: '100%'}}>
-            <div style={{width: '100%', height: '100%', display: 'flex', flexDirection: 'column'}}>
-              <div style={{width: '100%', height: '100%'}}>
-                <HeroPage />
-              </div>
-            </div>
+          <div className="wrapper" onPointerDown={(e) => e.stopPropagation()} style={{
+            width: '100%', 
+            height: '100%',
+            overflow: 'auto',
+            position: 'relative'
+          }}>
+            <HeroPage />
           </div>
         </Html>
       )}

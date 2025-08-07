@@ -1,16 +1,17 @@
 {
   "name": "3d-floating-laptop",
   "version": "1.0.0",
-  "description": "Interactive 3D laptop with HTML and WebGL using Vite",
+  "description": "Interactive 3D laptop demo with React and Three.js",
   "keywords": [
     "3d",
-    "vite",
     "react",
     "three.js",
     "drei",
-    "html"
+    "vite",
+    "interactive",
+    "demo"
   ],
-  "main": "src/index.js",
+  "main": "src/index.jsx",
   "dependencies": {
     "@headlessui/react": "1.4.0",
     "@heroicons/react": "1.0.6",
@@ -27,6 +28,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
-  }
+    "preview": "vite preview",
+    "start": "vite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/interactive3dlaptop.git"
+  },
+  "author": "",
+  "license": "CC-BY-4.0"
 }
