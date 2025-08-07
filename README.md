@@ -17,7 +17,6 @@ An interactive 3D floating laptop model with a usable website interface and shad
 - **Frontend**: React 18, Vite
 - **3D Graphics**: Three.js, @react-three/fiber, @react-three/drei
 - **Styling**: Tailwind CSS
-- **UI Components**: Heroicons
 
 ## Setup
 
