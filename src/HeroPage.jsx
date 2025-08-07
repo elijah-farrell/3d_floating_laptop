@@ -299,11 +299,12 @@ export default function LandingPage() {
             </div>
             <div className="mt-8">
               <div className="relative rounded-lg shadow-xl overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80"
-                  alt="Dashboard preview"
-                  className="w-full h-64 object-cover"
-                />
+                                 <div className="w-full h-64 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                   <div className="text-center text-white">
+                     <h3 className="text-2xl font-bold mb-2">Analytics Dashboard</h3>
+                     <p className="text-lg opacity-90">Real-time business metrics</p>
+                   </div>
+                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                                  <div className="absolute bottom-4 left-4 text-white">
                    <h3 className="text-xl font-semibold">Real-time Analytics Dashboard</h3>
