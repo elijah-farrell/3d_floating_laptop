@@ -1,19 +1,12 @@
-/* Modern Landing Page */
-import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
 import {
   ChartBarIcon,
   CursorClickIcon,
   ShieldCheckIcon,
   ViewGridIcon,
   RefreshIcon,
-  MenuIcon,
-  XIcon,
   CheckIcon,
   StarIcon,
-  UserGroupIcon,
-  CogIcon,
-  LightningBoltIcon
+  UserGroupIcon
 } from '@heroicons/react/outline'
 
 const features = [
@@ -125,169 +118,103 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
+// Smooth scroll function
+const scrollToSection = (sectionId) => {
+  const element = document.getElementById(sectionId)
+  const wrapper = document.querySelector('.laptop-content .wrapper')
+  if (element && wrapper) {
+    const elementTop = element.offsetTop
+    // Account for sticky navbar height (approximately 80px)
+    wrapper.scrollTo({
+      top: elementTop - 80,
+      behavior: 'smooth'
+    })
+  }
+}
+
 export default function LandingPage() {
   return (
     <div className="relative bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
-             <Popover className="relative bg-white shadow-lg sticky top-0 z-50">
-        {({ open }) => (
-          <>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6">
-              <div className="flex justify-between items-center py-6">
-                <div className="flex justify-start">
-                  <a href="#" className="flex items-center">
-                    <span className="sr-only">Your Brand</span>
-                    <div className="flex items-center">
-                      <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
-                        <span className="text-white font-bold text-sm">Y</span>
-                      </div>
-                      <span className="ml-2 text-xl font-bold text-gray-900">Your Brand</span>
-                    </div>
-                  </a>
-                </div>
-                <div className="-mr-2 -my-2 md:hidden">
-                  <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                    <span className="sr-only">Open menu</span>
-                    <MenuIcon className="h-6 w-6" aria-hidden="true" />
-                  </Popover.Button>
-                </div>
-                <Popover.Group as="nav" className="hidden md:flex space-x-10">
-                                     <a href="#features" className="text-lg font-medium text-gray-500 hover:text-gray-900">
-                     Features
-                   </a>
-                   <a href="#pricing" className="text-lg font-medium text-gray-500 hover:text-gray-900">
-                     Pricing
-                   </a>
-                   <a href="#testimonials" className="text-lg font-medium text-gray-500 hover:text-gray-900">
-                     Testimonials
-                   </a>
-                   <a href="#about" className="text-lg font-medium text-gray-500 hover:text-gray-900">
-                     About
-                   </a>
-                </Popover.Group>
-                <div className="hidden md:flex items-center justify-end space-x-4">
-                                     <a href="#" className="whitespace-nowrap text-lg font-medium text-gray-500 hover:text-gray-900">
-                     Sign in
-                   </a>
-                   <a
-                     href="#"
-                     className="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-                     Sign up
-                   </a>
-                </div>
-              </div>
+                    <nav className="relative bg-white shadow-lg sticky top-0 z-50">
+         <div className="max-w-7xl mx-auto px-4 sm:px-6">
+           <div className="flex justify-between items-center py-6">
+             <div className="flex justify-start">
+               <a href="#" className="flex items-center">
+                 <span className="sr-only">Your Brand</span>
+                 <div className="flex items-center">
+                   <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                     <span className="text-white font-bold text-sm">Y</span>
+                   </div>
+                   <span className="ml-2 text-xl font-bold text-gray-900">Your Brand</span>
+                 </div>
+               </a>
+             </div>
+             <div className="flex space-x-10">
+                                       <a onClick={() => scrollToSection('platform-preview')} className="text-lg font-medium text-gray-500 hover:text-gray-900 cursor-pointer">
+                 About
+               </a>
+               <a onClick={() => scrollToSection('features')} className="text-lg font-medium text-gray-500 hover:text-gray-900 cursor-pointer">
+                 Features
+               </a>
+               <a onClick={() => scrollToSection('testimonials')} className="text-lg font-medium text-gray-500 hover:text-gray-900 cursor-pointer">
+                 Testimonials
+               </a>
+               <a onClick={() => scrollToSection('pricing')} className="text-lg font-medium text-gray-500 hover:text-gray-900 cursor-pointer">
+                 Pricing
+               </a>
             </div>
-
-            <Transition
-              show={open}
-              as={Fragment}
-              enter="duration-200 ease-out"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="duration-100 ease-in"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95">
-              <Popover.Panel focus static className="absolute top-0 inset-x-0 z-10 p-2 transition transform origin-top-right">
-                <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
-                  <div className="pt-5 pb-6 px-5">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center">
-                        <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
-                          <span className="text-white font-bold text-sm">Y</span>
-                        </div>
-                        <span className="ml-2 text-xl font-bold text-gray-900">Your Brand</span>
-                      </div>
-                      <div className="-mr-2">
-                        <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                          <span className="sr-only">Close menu</span>
-                          <XIcon className="h-6 w-6" aria-hidden="true" />
-                        </Popover.Button>
-                      </div>
-                    </div>
-                    <div className="mt-6">
-                      <nav className="grid gap-y-8">
-                        {features.map((item) => (
-                          <a key={item.name} href={item.href} className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                            <item.icon className="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
-                            <span className="ml-3 text-lg font-medium text-gray-900">{item.name}</span>
-                          </a>
-                        ))}
-                      </nav>
-                    </div>
-                  </div>
-                  <div className="py-6 px-5 space-y-6">
-                    <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                                             <a href="#features" className="text-lg font-medium text-gray-900 hover:text-gray-700">
-                         Features
-                       </a>
-                       <a href="#pricing" className="text-lg font-medium text-gray-900 hover:text-gray-700">
-                         Pricing
-                       </a>
-                       <a href="#testimonials" className="text-lg font-medium text-gray-900 hover:text-gray-700">
-                         Testimonials
-                       </a>
-                       <a href="#about" className="text-lg font-medium text-gray-900 hover:text-gray-700">
-                         About
-                       </a>
-                    </div>
-                    <div>
-                      <a
-                        href="#"
-                                                 className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-                         Sign up
-                       </a>
-                       <p className="mt-6 text-center text-lg font-medium text-gray-500">
-                         Existing customer?
-                         <a href="#" className="text-indigo-600 hover:text-indigo-500">
-                           Sign in
-                         </a>
-                       </p>
-                    </div>
-                  </div>
-                </div>
-              </Popover.Panel>
-            </Transition>
-          </>
-        )}
-      </Popover>
+             <div className="flex items-center justify-end space-x-4">
+                                  <a href="#" className="whitespace-nowrap text-lg font-medium text-gray-500 hover:text-gray-900">
+                 Sign in
+               </a>
+                                   <a
+                  href="#"
+                  className="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-blue-600 hover:bg-blue-700">
+                 Sign up
+               </a>
+             </div>
+           </div>
+         </div>
+       </nav>
 
       <main className="overflow-y-auto">
         {/* Hero Section */}
         <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center">
           <div className="px-4 sm:px-8">
             <div className="flex justify-center mb-6">
-              <div className="flex items-center justify-center w-16 h-16 bg-indigo-600 rounded-full">
-                <span className="text-white font-bold text-2xl">Y</span>
-              </div>
-            </div>
-            <h1 className="text-5xl tracking-tight font-extrabold text-gray-900 sm:text-6xl md:text-7xl">
-              <span className="block">Transform your business</span>
-              <span className="block text-indigo-600">with intelligent solutions</span>
-            </h1>
+                             <div className="flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full">
+                 <span className="text-white font-bold text-2xl">Y</span>
+               </div>
+             </div>
+             <h1 className="text-5xl tracking-tight font-extrabold text-gray-900 sm:text-6xl md:text-7xl">
+               <span className="block">Transform your business</span>
+               <span className="block text-blue-600">with intelligent solutions</span>
+             </h1>
             <p className="mt-3 max-w-md mx-auto text-xl text-gray-500 sm:text-2xl md:mt-5 md:max-w-3xl">
               Empower your team with cutting-edge analytics, automation, and collaboration tools. 
               Join thousands of businesses that trust our platform to drive growth and efficiency.
             </p>
             <div className="mt-10 flex justify-center space-x-4">
               <div className="rounded-md shadow">
-                <a
-                  href="#"
-                                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-lg font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
-                   Get started
-                 </a>
-               </div>
-               <div className="rounded-md shadow">
-                 <a
+                                 <a
                    href="#"
-                   className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-lg font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50">
-                   Live demo
-                 </a>
+                                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-lg font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                    Get started
+                  </a>
+                </div>
+                <div className="rounded-md shadow">
+                  <a
+                    href="#"
+                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-lg font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50">
+                    Live demo
+                  </a>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Hero Image Section */}
-        <div className="py-12 bg-white">
+                 {/* Hero Image Section */}
+         <div id="platform-preview" className="py-12 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative">
               <div className="absolute inset-0 flex items-center" aria-hidden="true">
@@ -299,7 +226,7 @@ export default function LandingPage() {
             </div>
             <div className="mt-8">
               <div className="relative rounded-lg shadow-xl overflow-hidden">
-                                 <div className="w-full h-64 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                                 <div className="w-full h-64 bg-gradient-to-br from-blue-600 to-gray-800 flex items-center justify-center">
                    <div className="text-center text-white">
                      <h3 className="text-2xl font-bold mb-2">Analytics Dashboard</h3>
                      <p className="text-lg opacity-90">Real-time business metrics</p>
@@ -319,7 +246,7 @@ export default function LandingPage() {
         <div id="features" className="py-12 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="lg:text-center">
-              <h2 className="text-lg text-indigo-600 font-semibold tracking-wide uppercase">Features</h2>
+                             <h2 className="text-lg text-blue-600 font-semibold tracking-wide uppercase">Features</h2>
               <p className="mt-2 text-4xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-5xl">
                 Everything you need to succeed
               </p>
@@ -334,9 +261,9 @@ export default function LandingPage() {
                 {features.map((feature) => (
                   <div key={feature.name} className="relative">
                     <dt>
-                      <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                        <feature.icon className="h-6 w-6" aria-hidden="true" />
-                      </div>
+                                             <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
+                         <feature.icon className="h-6 w-6" aria-hidden="true" />
+                       </div>
                       <p className="ml-16 text-xl leading-6 font-medium text-gray-900">{feature.name}</p>
                     </dt>
                     <dd className="mt-2 ml-16 text-lg text-gray-500">{feature.description}</dd>
@@ -351,7 +278,7 @@ export default function LandingPage() {
         <div id="testimonials" className="py-12 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="lg:text-center">
-              <h2 className="text-lg text-indigo-600 font-semibold tracking-wide uppercase">Testimonials</h2>
+                             <h2 className="text-lg text-blue-600 font-semibold tracking-wide uppercase">Testimonials</h2>
               <p className="mt-2 text-4xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-5xl">
                 Trusted by thousands of businesses
               </p>
@@ -385,7 +312,7 @@ export default function LandingPage() {
         <div id="pricing" className="py-12 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="lg:text-center">
-              <h2 className="text-lg text-indigo-600 font-semibold tracking-wide uppercase">Pricing</h2>
+                             <h2 className="text-lg text-blue-600 font-semibold tracking-wide uppercase">Pricing</h2>
               <p className="mt-2 text-4xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-5xl">
                 Choose the perfect plan for your business
               </p>
@@ -397,17 +324,17 @@ export default function LandingPage() {
             <div className="mt-10">
               <div className="grid gap-8 md:grid-cols-3">
                 {pricingPlans.map((plan, index) => (
-                  <div key={plan.name} className={classNames(
-                    plan.popular ? 'ring-2 ring-indigo-500' : '',
-                    'bg-white rounded-lg shadow-lg p-6 relative'
-                  )}>
-                    {plan.popular && (
-                      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <span className="bg-indigo-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                          Most Popular
-                        </span>
-                      </div>
-                    )}
+                                     <div key={plan.name} className={classNames(
+                     plan.popular ? 'ring-2 ring-blue-500' : '',
+                     'bg-white rounded-lg shadow-lg p-6 relative'
+                   )}>
+                     {plan.popular && (
+                       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                         <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                           Most Popular
+                         </span>
+                       </div>
+                     )}
                     <div className="text-center">
                       <h3 className="text-xl font-semibold text-gray-900">{plan.name}</h3>
                       <div className="mt-4">
@@ -427,12 +354,12 @@ export default function LandingPage() {
                     <div className="mt-8">
                       <a
                         href="#"
-                                                 className={classNames(
-                           plan.popular
-                             ? 'bg-indigo-600 text-white hover:bg-indigo-700'
-                             : 'bg-gray-100 text-gray-900 hover:bg-gray-200',
-                           'w-full flex justify-center py-2 px-4 border border-transparent rounded-md text-lg font-medium'
-                         )}
+                                                                          className={classNames(
+                            plan.popular
+                              ? 'bg-blue-600 text-white hover:bg-blue-700'
+                              : 'bg-gray-100 text-gray-900 hover:bg-gray-200',
+                            'w-full flex justify-center py-2 px-4 border border-transparent rounded-md text-lg font-medium'
+                          )}
                       >
                         Get started
                       </a>
@@ -445,32 +372,32 @@ export default function LandingPage() {
         </div>
 
         {/* CTA Section */}
-        <div className="py-12 bg-indigo-600">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <h2 className="text-4xl font-extrabold text-white sm:text-5xl">
-                Ready to get started?
-              </h2>
-              <p className="mt-4 text-xl text-indigo-100">
-                Join thousands of businesses that trust our platform to drive growth and efficiency.
-              </p>
-              <div className="mt-8 flex justify-center space-x-4">
-                <a
-                  href="#"
-                  className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50"
-                >
-                  Start free trial
-                </a>
-                <a
-                  href="#"
-                  className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-700"
-                >
-                  Contact sales
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+                 <div className="py-12 bg-blue-600">
+           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+             <div className="text-center">
+               <h2 className="text-4xl font-extrabold text-white sm:text-5xl">
+                 Ready to get started?
+               </h2>
+               <p className="mt-4 text-xl text-blue-100">
+                 Join thousands of businesses that trust our platform to drive growth and efficiency.
+               </p>
+               <div className="mt-8 flex justify-center space-x-4">
+                 <a
+                   href="#"
+                   className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50"
+                 >
+                   Start free trial
+                 </a>
+                 <a
+                   href="#"
+                   className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-700"
+                 >
+                   Contact sales
+                 </a>
+               </div>
+             </div>
+           </div>
+         </div>
       </main>
     </div>
   )

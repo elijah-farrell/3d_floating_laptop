@@ -13,7 +13,6 @@
   ],
   "main": "src/index.jsx",
   "dependencies": {
-    "@headlessui/react": "1.4.0",
     "@heroicons/react": "1.0.6",
     "@react-three/drei": "9.76.0",
     "@react-three/fiber": "8.13.3",
@@ -33,7 +32,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/interactive3dlaptop.git"
+    "url": "https://github.com/elijah-farrell/3d_floating_laptop"
   },
   "author": "",
   "license": "CC-BY-4.0"

@@ -1,6 +1,6 @@
 # 3D Interactive Laptop Demo
 
-A cool 3D laptop that displays a full landing page on its screen! Built with React and Three.js - you can drag to rotate the laptop and see the website content right on the 3D screen.
+An interactive 3D floating laptop model with a usable website interface and shadow effects. Built with React and Three.js - drag to rotate the laptop and explore a full landing page rendered directly on the 3D screen.
 
 ![3D Interactive Laptop Demo](public/laptop.png)
 
@@ -17,7 +17,7 @@ A cool 3D laptop that displays a full landing page on its screen! Built with Rea
 - **Frontend**: React 18, Vite
 - **3D Graphics**: Three.js, @react-three/fiber, @react-three/drei
 - **Styling**: Tailwind CSS
-- **UI Components**: Headless UI, Heroicons
+- **UI Components**: Heroicons
 
 ## Setup
 
