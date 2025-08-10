@@ -16,9 +16,9 @@ function Model(props) {
   useFrame((state) => {
     const t = state.clock.getElapsedTime()
     group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, Math.cos(t / 3) / 25 + 0.25, 0.08)
-    group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, Math.sin(t / 6) / 8, 0.08)
+    group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, Math.sin(t / 6) / 20, 0.08)
     group.current.rotation.z = THREE.MathUtils.lerp(group.current.rotation.z, Math.sin(t / 12) / 25, 0.08)
-    group.current.position.y = THREE.MathUtils.lerp(group.current.position.y, (-2 + Math.sin(t / 3)) / 3, 0.08)
+    group.current.position.y = THREE.MathUtils.lerp(group.current.position.y, (-4.75 + Math.sin(t / 3)) / 3, 0.08)
   })
 
   // Calculate model bounds and adjust scale/position
