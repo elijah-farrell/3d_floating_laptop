@@ -213,34 +213,24 @@ export default function LandingPage() {
           </div>
         </div>
 
-                 {/* Hero Image Section */}
+                          {/* Platform Preview Section */}
          <div id="platform-preview" className="py-12 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center" aria-hidden="true">
-                <div className="w-full border-t border-gray-300" />
-              </div>
-              <div className="relative flex justify-center">
-                                 <span className="px-3 bg-white text-xl font-medium text-gray-900">Platform Preview</span>
-              </div>
-            </div>
-            <div className="mt-8">
-              <div className="relative rounded-lg shadow-xl overflow-hidden">
-                                 <div className="w-full h-64 bg-gradient-to-br from-blue-600 to-gray-800 flex items-center justify-center">
-                   <div className="text-center text-white">
-                     <h3 className="text-2xl font-bold mb-2">Analytics Dashboard</h3>
-                     <p className="text-lg opacity-90">Real-time business metrics</p>
-                   </div>
-                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                                 <div className="absolute bottom-4 left-4 text-white">
-                   <h3 className="text-xl font-semibold">Real-time Analytics Dashboard</h3>
-                   <p className="text-base opacity-90">Monitor your business metrics in real-time</p>
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
+           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+             <h2 className="text-3xl font-bold text-center mb-8 text-gray-900">Platform Preview</h2>
+             <div className="relative rounded-lg shadow-2xl overflow-hidden">
+               <img 
+                 src="/stock.jpeg" 
+                 alt="Platform Preview" 
+                 className="w-full h-96 object-cover"
+               />
+               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+               <div className="absolute bottom-6 left-6 text-black z-10">
+                 <h3 className="text-3xl font-bold mb-2">See Our Platform</h3>
+                 <p className="text-lg opacity-90">Experience the future of business solutions</p>
+               </div>
+             </div>
+           </div>
+         </div>
 
         {/* Features Section */}
         <div id="features" className="py-12 bg-gray-50">
