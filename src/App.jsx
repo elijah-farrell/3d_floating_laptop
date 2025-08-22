@@ -8,7 +8,7 @@ function Model(props) {
   const group = useRef()
   const [modelLoaded, setModelLoaded] = useState(false)
   const [screenReady, setScreenReady] = useState(false)
-  
+
   // Load model
   const { scene } = useGLTF('/laptop.glb')
   
@@ -88,11 +88,12 @@ function Model(props) {
             boxShadow: 'none',
             overflow: 'hidden',
             fontSize: '20px',
-            zIndex: 1000,
+            zIndex: 1,
             position: 'relative',
             display: 'flex',
             flexDirection: 'column'
           }}
+
         >
           <div className="wrapper" onPointerDown={(e) => e.stopPropagation()} style={{
             width: '100%', 
@@ -111,12 +112,29 @@ function Model(props) {
 }
 
 export default function App() {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  // Calculate scale factor based on screen width
+  const getScaleFactor = () => {
+    if (screenWidth <= 768) return 0.6; // 60% size below 768px
+    if (screenWidth <= 900) return 0.9; // 90% size below 900px
+    return 1; // Full size
+  };
+  
+  const scaleFactor = getScaleFactor();
+  
   return (
     <>
-      <Canvas camera={{ position: [-5, 0, 13], fov: 55 }}>
+      <Canvas camera={{ position: [-5, 0, 13], fov: 55 }} style={{ position: 'relative', zIndex: 1 }}>
         <pointLight position={[10, 10, 10]} intensity={1.5} />
         <Suspense fallback={null}>
-          <group rotation={[0, 0, 0]} position={[0, 0, 3]}>
+          <group rotation={[0, 0, 0]} position={[0, 0, 3]} scale={scaleFactor}>
             <Model />
           </group>
           <Environment preset="city" />
@@ -125,7 +143,7 @@ export default function App() {
         <OrbitControls enablePan={false} enableZoom={false} minPolarAngle={Math.PI / 2.2} maxPolarAngle={Math.PI / 2.2} />
       </Canvas>
 
-             {/* Fancy Credit Badge - Top Right of Screen */}
+             {/* Fancy Credit Badge - Top Left of Screen */}
        <div className="credit-badge">
          <div className="credit-content">
            <div className="credit-links">

@@ -39,10 +39,6 @@ body {
 
 /* Override styles for laptop content */
 .laptop-content {
-  width: 1160px !important;
-  height: 660px !important;
-  max-width: 1160px !important;
-  max-height: 660px !important;
   overflow: hidden !important;
   position: relative !important;
 }
@@ -63,13 +59,11 @@ body {
   width: 100% !important;
   height: auto !important;
   min-height: 100% !important;
-  max-width: 100% !important;
   scroll-behavior: smooth !important;
 }
 
 /* Ensure all content stays within bounds */
 .laptop-content * {
-  max-width: 100% !important;
   box-sizing: border-box !important;
 }
 
@@ -77,9 +71,11 @@ body {
 .credit-badge {
   position: fixed;
   top: 20px;
-  right: 20px;
-  z-index: 10000;
+  left: 20px;
+  z-index: 999999;
   pointer-events: auto;
+  isolation: isolate;
+  transform: translateZ(0);
 }
 
 .credit-content {
@@ -130,6 +126,62 @@ body {
   width: 18px;
   height: 18px;
   color: white !important;
+}
+
+
+/* Mobile responsive styles for credit badge */
+@media (max-width: 768px) {
+  .credit-badge {
+    top: 15px;
+    left: 15px;
+  }
+  
+  .credit-content {
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+  
+  .credit-links {
+    gap: 8px;
+  }
+  
+  .credit-link {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+  }
+  
+  .credit-icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .credit-badge {
+    top: 10px;
+    left: 10px;
+  }
+  
+  .credit-content {
+    padding: 6px 10px;
+    border-radius: 6px;
+  }
+  
+  .credit-links {
+    gap: 6px;
+  }
+  
+  .credit-link {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+  }
+  
+  .credit-icon {
+    width: 12px;
+    height: 12px;
+  }
 }
 
 
